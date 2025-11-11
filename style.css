@@ -551,6 +551,10 @@ footer{
         height: 220px;
     }
 
+    .second_logo{
+        max-width: fit-content;
+    }
+
     h1 {
         font-size: 32px;
     }
