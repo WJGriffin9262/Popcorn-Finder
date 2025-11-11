@@ -1,114 +1,24 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
   <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>PopcornFinder</title>
-    <link rel="stylesheet" href="style.css" />
-    <script
-      src="https://kit.fontawesome.com/3852e702d0.js"
-      crossorigin="anonymous"
-    ></script>
-    <script src="index.js" defer></script>
+    <meta charset="utf-8">
+    <meta http-equiv="refresh" content="0;url=home.html">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Redirecting to Home…</title>
+    <style>
+      html,body{height:100%;margin:0;font-family:Roboto,system-ui,Segoe UI,Arial}
+      .center{height:100%;display:flex;align-items:center;justify-content:center;flex-direction:column;color:#333}
+      a{color:#b83636}
+    </style>
+    <script>
+      // JS fallback in case meta refresh is ignored
+      window.location.replace('home.html');
+    </script>
   </head>
   <body>
-    <section id="landing">
-      <nav>
-        <div class="nav__container">
-          <h1 class="logo"><img src="assets/no-title_popcorn-finder_logo.png" alt=""></h1>
-          <ul class="nav__links">
-            <li>
-              <a href="#" class="nav__link">Home</a>
-            </li>
-            <li>
-              <a href="#search" class="nav__link nav__link--primary">Movies</a>
-            </li>
-          </ul>
-          <button class="btn__menu" onclick="openMenu()">
-            <i class="fa-solid fa-bars"></i>
-          </button>
-          <div class="menu__backdrop">
-            <button class="btn__menu btn__menu--close" onclick="closeMenu()">
-              <i class="fa-solid fa-times"></i>
-            </button>
-            <ul class="menu__links">
-              <li class="menu__list">
-                <a href="#" class="menu__link" onclick="closeMenu()">Home</a>
-              </li>
-              <li class="menu__list">
-                <a href="#search" class="menu__link" onclick="closeMenu()">Movies</a>
-              </li>
-            </ul>
-          </div>
-        </div>
-      </nav>
-      <header>
-        <div class="header__container">
-          <div class="header__description">
-            <h1 class="second_logo"><img src="assets/full_popcorn-finder_logo.png" alt=""></h1>
-            <h2>
-              What do you hope to <span class="text-red">Find?</span>
-            </h2>
-            <div class="search-container">
-              <input type="text" id="movieSearch" placeholder="Search for a movie..." class="search-input">
-              <button id="searchButton" class="btn">Search Movies</button>
-              <select id="sortSelect" class="search-input" disabled aria-label="Sort results">
-                <option value="">Sort</option>
-                <option value="best">Best Rating</option>
-                <option value="worst">Worst Rating</option>
-                <option value="newest">Newest</option>
-                <option value="oldest">Oldest</option>
-              </select>
-            </div>
-          </div>
-          <div class="loading-spinner" id="loadingSpinner" style="display: none;">
-            <i class="fas fa-spinner fa-spin"></i>
-          </div>
-        </div>
-      </header>
-    </section>
-    <main>
-      
-      <section id="search" class="hidden">
-        <div class="container">
-          <div class="row">
-            <h2 class="section__title">
-              Search <span class="text-purple">Results</span>
-            </h2>
-            <div id="movieResults" class="movies"></div>
-          </div>
-        </div>
-      </section>
-
-      <section id="explore">
-        <div class="explore__container">
-          <div class="explore__description">
-            <h3>Discover more <span class="text-red">Movies</span></h3>
-            <a href="#landing">
-              <button class="btn">Browse Movies</button>
-            </a>
-          </div>
-        </div>
-      </section>
-    </main>
-    <footer>
-      <div class="container">
-        <div class="row row_column">
-          <a href="">
-            <div class="footer__logo">
-             <figure><img class="footer__logo--img" src="assets/no-title_popcorn-finder_logo.png" alt="">
-            </figure>
-            </div>
-          </a>
-          <div class="footer__list">
-            <a href="" class="footer__link">Home</a>
-            <a href="" class="footer__link no-cursor">About</a>
-            <a href="" class="footer__link">Movies</a>
-            <a href="" class="footer__link no-cursor">Contact</a>
-          </div>
-          <div class="footer__copyright">Copyright &copy; 2025 PopcornFinder </div>
-        </div>
-      </div>
-    </footer>
+    <div class="center">
+      <h2>Redirecting to Home…</h2>
+      <p>If you are not redirected automatically, <a href="home.html">click here</a>.</p>
+    </div>
   </body>
 </html>
