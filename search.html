@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>PopcornFinder - Search Movies</title>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="page-styles.css" />
+    <script
+      src="https://kit.fontawesome.com/3852e702d0.js"
+      crossorigin="anonymous"
+    ></script>
+    <script src="search.js" defer></script>
+  </head>
+  <body>
+    <nav>
+      <div class="nav__container">
+        <h1 class="logo"><a href="home.html"><img src="assets/no-title_popcorn-finder_logo.png" alt="PopcornFinder"></a></h1>
+        <ul class="nav__links">
+          <li>
+            <a href="home.html" class="nav__link">Home</a>
+          </li>
+          <li>
+            <a href="search.html" class="nav__link nav__link--primary">Movies</a>
+          </li>
+          <li>
+            <a href="details.html" class="nav__link">Details</a>
+          </li>
+        </ul>
+        <button class="btn__menu" onclick="openMenu()">
+          <i class="fa-solid fa-bars"></i>
+        </button>
+        <div class="menu__backdrop">
+          <button class="btn__menu btn__menu--close" onclick="closeMenu()">
+            <i class="fa-solid fa-times"></i>
+          </button>
+          <ul class="menu__links">
+            <li class="menu__list">
+              <a href="home.html" class="menu__link" onclick="closeMenu()">Home</a>
+            </li>
+            <li class="menu__list">
+              <a href="search.html" class="menu__link" onclick="closeMenu()">Movies</a>
+            </li>
+            <li class="menu__list">
+              <a href="details.html" class="menu__link" onclick="closeMenu()">Details</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <main>
+      <section id="search-page">
+        <div class="container">
+          <div class="row">
+            <div class="search-header">
+              <h1>Find Your Favorite Movies</h1>
+              <div class="search-container">
+                <input type="text" id="movieSearch" placeholder="Search for a movie..." class="search-input">
+                <button class="btn" onclick="searchMovies()">Search Movies</button>
+                <select id="sortSelect" class="search-input" disabled aria-label="Sort results">
+                  <option value="">Sort</option>
+                  <option value="best">Best Rating</option>
+                  <option value="worst">Worst Rating</option>
+                  <option value="newest">Newest</option>
+                  <option value="oldest">Oldest</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="loading-spinner" id="loadingSpinner" style="display: none;">
+              <i class="fas fa-spinner fa-spin"></i>
+            </div>
+
+            <h2 class="section__title">
+              Search <span class="text-red">Results</span>
+            </h2>
+            <div id="movieResults" class="movies">
+              <div class="movie placeholder-card">
+                <div class="movie__img" style="background-color: rgba(214, 211, 66, 0.1); height: 400px; display: flex; align-items: center; justify-content: center;">
+                  <i class="fas fa-film" style="font-size: 48px; color: #b83636"></i>
+                </div>
+                <div class="movie__title">Search for Movies</div>
+                <div class="movie__info">Use the search bar above to discover movies</div>
+                <div class="movie__plot">Enter a movie title in the search box and click 'Search Movies' to see detailed information about your favorite films.</div>
+                <div class="movie__ratings">
+                  <i class="fas fa-star"></i>
+                  <span>Search to see ratings</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <div class="container">
+        <div class="row row_column">
+          <a href="home.html">
+            <div class="footer__logo">
+              <figure><img class="footer__logo--img" src="assets/no-title_popcorn-finder_logo.png" alt=""></figure>
+            </div>
+          </a>
+          <div class="footer__list">
+            <a href="home.html" class="footer__link">Home</a>
+            <a href="search.html" class="footer__link">Movies</a>
+            <a href="details.html" class="footer__link">Details</a>
+            <a href="#" class="footer__link no-cursor">About</a>
+            <a href="#" class="footer__link no-cursor">Contact</a>
+          </div>
+          <div class="footer__copyright">Copyright &copy; 2025 PopcornFinder</div>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>
