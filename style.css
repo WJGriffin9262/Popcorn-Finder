@@ -113,11 +113,14 @@ border-radius: 4px;
     transition: all 300ms ease;
     opacity: 0;
     visibility: hidden;
+    /* Prevent backdrop from blocking clicks when closed */
+    pointer-events: none;
 }
 
 .menu--open .menu__backdrop{
     visibility: visible;
     opacity: 1;
+    pointer-events: auto;
 }
 
 .menu--open{
@@ -157,6 +160,9 @@ border-radius: 4px;
 
 header{
     height: calc(100vh - 80px);
+    /* Ensure header content sits above decorative waves */
+    position: relative;
+    z-index: 2;
 }
 
 .text-red{
@@ -251,6 +257,8 @@ max-width: 100vw;
     z-index: 1;
     background-size: cover;
     background-repeat: no-repeat;
+    /* Prevent decorative elements from intercepting clicks */
+    pointer-events: none;
 }
 
 #highlights:before{
@@ -305,8 +313,24 @@ max-width: 100vw;
 /*SEARCH*/
 
 #search{
+    /* Match section tone used across site */
     background-color: rgba(214, 211, 66, 0.1);
     padding-top: 8vw;
+}
+
+/* Make the Search Results heading white for contrast */
+#search .section__title {
+    color: #ffffff;
+}
+
+/* Ensure nested span matches white as well */
+#search .section__title .text-purple {
+    color: #ffffff;
+}
+
+/* Utility: hide sections until triggered */
+.hidden {
+    display: none !important;
 }
 
 .movies {
