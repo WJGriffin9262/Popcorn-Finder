@@ -7,7 +7,6 @@
     font-family: "Roboto", sans-serif;
 }
 
-/* Improve font rendering and prevent overflow */
 * , *::before, *::after {
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
@@ -47,7 +46,6 @@ a:hover{
     text-decoration: underline;
 }
 
-/* allow inputs inside flex to shrink properly on small screens */
 .search-container .search-input,
 .search-container .btn,
 .search-container select {
@@ -63,8 +61,6 @@ align-items: center;
 padding: 32px 24px;
 }
 
-
-/* prevent giant padding on very small screens */
 @media (max-width: 420px) {
     .search-input { padding: 10px 12px; }
 }
@@ -133,8 +129,6 @@ border-radius: 4px;
     transition: all 300ms ease;
     opacity: 0;
     visibility: hidden;
-    /* Prevent backdrop from blocking clicks when closed */
-    pointer-events: none;
 }
 
 .menu--open .menu__backdrop{
@@ -180,7 +174,6 @@ border-radius: 4px;
 
 header{
     height: calc(100vh - 80px);
-    /* Ensure header content sits above decorative waves */
     position: relative;
     z-index: 2;
 }
@@ -206,7 +199,6 @@ header{
     align-items: center;
 }
 
-/* Responsive headings that shrink on small viewports */
 .header__description{
     max-width: 100%;
     word-wrap: break-word;
@@ -269,96 +261,23 @@ margin: 0 auto;
 .no-cursor{
     cursor: not-allowed;
 }
-/*HIGHLIGHTS*/
-
-#highlights{
-position: relative;
-max-width: 100vw;
-}
-
-#highlights:before,
-#highlights::after{
-    background: url('assets/wave.svg');
-    content: "";
-    position: absolute;
-    width: 101vw;
-    height: 12vw;
-    left: 0;
-    z-index: 1;
-    background-size: cover;
-    background-repeat: no-repeat;
-    /* Prevent decorative elements from intercepting clicks */
-    pointer-events: none;
-}
-
-#highlights:before{
-    top: 1px;
-    transform: translateY(-100%);
-}
-#highlights::after{
-    bottom: 1px;
-    transform: translateY(100%) rotate(180deg);
-}
-
-
-.highlight__wrapper{
-    display: flex;
-    justify-content: space-around;
-    flex-direction: row;
-    flex-wrap: wrap;
-}
-
-.highlight{
-    padding: 0 24px;
-    width: calc(100%/3);
-    display: flex;
-    align-items: center;
-    flex-direction: column;
-}
-
-.highlight__para{
-    text-align: center;
-    max-width: 240px;
-}
-
-.highlight__img{
-    border: 2px solid #b83636;
-    color: #b83636;
-    width: 100px;
-    height: 100px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border-radius: 4px;
-    font-size: 32px;
-    margin-bottom: 24px;
-}
-
-.highlight__subtitle{
-    font-size: 20px;
-    margin-bottom: 16px;
-    text-align: center;
-}
-
 /*SEARCH*/
 
 #search{
-    /* Match section tone used across site */
     background-color: rgba(214, 211, 66, 0.1);
     padding-top: 8vw;
 }
 
-/* Make the Search Results heading white for contrast */
 #search .section__title {
     color: #ffffff;
 }
 
-/* Ensure nested span matches white as well */
+
 #search .section__title .text-purple {
     color: #ffffff;
 }
 
-/* Utility: hide sections until triggered */
+
 .hidden {
     display: none !important;
 }
@@ -575,9 +494,6 @@ footer{
         padding: 24px 0;
     }
 
-    .highlight__wrapper {
-        padding: 0 12px;
-    }
 }
 
 /* Even smaller phones */
@@ -603,13 +519,5 @@ footer{
     }
 .btn__menu{
     display: block;
-}
-.highlight{
-    width: 100%;
-    margin-bottom: 24px;
-}
-
-.highlight:not(:last-child){
-    margin-bottom: 24px;
 }
 }
