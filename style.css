@@ -76,7 +76,8 @@ padding: 32px 24px;
 
 .second_logo{
     max-width: 100%;
-    width: 400px;
+    width: clamp(200px, 80vw, 400px);
+    height: auto;
 }
 
 ul {
@@ -196,6 +197,7 @@ header{
     display: flex;
     flex-direction: column;
     justify-content: space-around;
+    padding: 0 16px;
 }
 
 .header__description{
