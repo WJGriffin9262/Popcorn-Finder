@@ -1,24 +1,90 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta charset="utf-8">
-    <meta http-equiv="refresh" content="0;url=home.html">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Redirecting to Home…</title>
-    <style>
-      html,body{height:100%;margin:0;font-family:Roboto,system-ui,Segoe UI,Arial}
-      .center{height:100%;display:flex;align-items:center;justify-content:center;flex-direction:column;color:#333}
-      a{color:#b83636}
-    </style>
-    <script>
-      // JS fallback in case meta refresh is ignored
-      window.location.replace('home.html');
-    </script>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>PopcornFinder - Home</title>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="page-styles.css" />
+    <script
+      src="https://kit.fontawesome.com/3852e702d0.js"
+      crossorigin="anonymous"
+    ></script>
+    <script src="index.js" defer></script>
   </head>
   <body>
-    <div class="center">
-      <h2>Redirecting to Home…</h2>
-      <p>If you are not redirected automatically, <a href="home.html">click here</a>.</p>
-    </div>
+    <section id="landing">
+      <nav>
+        <div class="nav__container">
+          <h1 class="logo"><a href="home.html"><img src="assets/no-title_popcorn-finder_logo.png" alt="PopcornFinder"></a></h1>
+          <ul class="nav__links">
+            <li>
+              <a href="home.html" class="nav__link">Home</a>
+            </li>
+            <li>
+              <a href="search.html" class="nav__link">Movies</a>
+            </li>
+            <li>
+              <a href="details.html" class="nav__link nav__link--primary">Details</a>
+            </li>
+          </ul>
+          <button class="btn__menu" onclick="openMenu()">
+            <i class="fa-solid fa-bars"></i>
+          </button>
+          <div class="menu__backdrop">
+            <button class="btn__menu btn__menu--close" onclick="closeMenu()">
+              <i class="fa-solid fa-times"></i>
+            </button>
+            <ul class="menu__links">
+              <li class="menu__list">
+                <a href="home.html" class="menu__link" onclick="closeMenu()">Home</a>
+              </li>
+              <li class="menu__list">
+                <a href="search.html" class="menu__link" onclick="closeMenu()">Movies</a>
+              </li>
+              <li class="menu__list">
+                <a href="details.html" class="menu__link" onclick="closeMenu()">Details</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+      <header>
+        <div class="header__container">
+          <div class="header__description">
+            <h1 class="second_logo"><img src="assets/full_popcorn-finder_logo.png" alt="PopcornFinder Logo"></h1>
+            <h2>
+              What do you hope to <span class="text-red">Find?</span>
+            </h2>
+            <a href="search.html">
+              <button class="btn">Start Searching</button>
+            </a>
+          </div>
+        </div>
+      </header>
+    </section>
+    <main>
+
+      <section id="explore">
+    </main>
+    <footer>
+      <div class="container">
+        <div class="row row_column">
+          <a href="home.html">
+            <div class="footer__logo">
+              <figure><img class="footer__logo--img" src="assets/no-title_popcorn-finder_logo.png" alt=""></figure>
+            </div>
+          </a>
+          <div class="footer__list">
+            <a href="home.html" class="footer__link">Home</a>
+            <a href="search.html" class="footer__link">Movies</a>
+            <a href="details.html" class="footer__link">Details</a>
+            <a href="#" class="footer__link no-cursor">About</a>
+            <a href="#" class="footer__link no-cursor">Contact</a>
+          </div>
+          <div class="footer__copyright">Copyright &copy; 2025 PopcornFinder</div>
+        </div>
+      </div>
+    </footer>
   </body>
 </html>
