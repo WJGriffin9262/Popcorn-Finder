@@ -509,6 +509,83 @@ footer{
     }
 }
 
+/* Better mobile layout for smaller screens */
+@media (max-width: 550px) {
+    .search-container {
+        flex-direction: column;
+        gap: 12px;
+        max-width: 100%;
+        padding: 0 16px;
+    }
+
+    .search-input {
+        width: 100%;
+        padding: 10px 16px;
+        font-size: 16px;
+    }
+
+    .search-container .btn {
+        width: 100%;
+        padding: 12px 16px;
+    }
+
+    /* Make sort select full width and clearly visible */
+    #sortSelect {
+        width: 100%;
+        padding: 10px 12px;
+        border-radius: 4px;
+    }
+
+    /* Stack movie cards as single column */
+    .movie {
+        width: calc(100% - 32px);
+        margin: 12px 16px;
+        padding: 12px;
+    }
+
+    .movie__img {
+        height: 220px;
+    }
+
+    /* Header scaling */
+    h1 {
+        font-size: 32px;
+    }
+
+    h2 {
+        font-size: 20px;
+    }
+
+    .nav__container {
+        padding: 16px;
+    }
+
+    .header__container {
+        max-width: 100%;
+        padding: 24px 0;
+    }
+
+    .highlight__wrapper {
+        padding: 0 12px;
+    }
+}
+
+/* Even smaller phones */
+@media (max-width: 380px) {
+    .movie__img {
+        height: 180px;
+    }
+
+    .movie__title {
+        font-size: 18px;
+    }
+
+    .search-input {
+        padding: 10px;
+        font-size: 15px;
+    }
+}
+
 /*SMALL PHONES, LARGE PHONES*/
 @media (max-width: 550px){
     .nav__links{
