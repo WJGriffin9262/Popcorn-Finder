@@ -7,8 +7,15 @@
     font-family: "Roboto", sans-serif;
 }
 
+/* Improve font rendering and prevent overflow */
+* , *::before, *::after {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
 html{
     scroll-behavior: smooth;
+    font-size: 16px;
 }
 
 body{
@@ -16,14 +23,14 @@ body{
     overflow-x: hidden;
 }
 
-nav{
-    height: 80px;
-    display: flex;
-}
-
 img{
     display: block;
     max-width: 100%;
+
+    /* ensure long words or logos wrap on small screens */
+    max-width: 100%;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
     height: auto;
 }
 
@@ -40,6 +47,12 @@ a:hover{
     text-decoration: underline;
 }
 
+/* allow inputs inside flex to shrink properly on small screens */
+.search-container .search-input,
+.search-container .btn,
+.search-container select {
+    min-width: 0;
+}
 .nav__container{
 display: flex;
 width: 100%;
@@ -50,6 +63,11 @@ align-items: center;
 padding: 32px 24px;
 }
 
+
+/* prevent giant padding on very small screens */
+@media (max-width: 420px) {
+    .search-input { padding: 10px 12px; }
+}
 .logo{
     height: 10px;
     width: 64px;
@@ -185,17 +203,26 @@ header{
     align-items: center;
 }
 
+/* Responsive headings that shrink on small viewports */
+.header__description{
+    max-width: 100%;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+}
+
 h1{
-    font-size: 56px;
+    font-size: clamp(28px, 6vw, 56px);
     color: #b83636;
-    margin-bottom: 32px;
+    margin-bottom: 24px;
     text-align: center;
+    line-height: 1.1;
 }
 
 h2{
     text-align: center;
-    font-size: 32px;
-    margin-bottom: 32px;
+    font-size: clamp(18px, 4vw, 32px);
+    margin-bottom: 20px;
+    line-height: 1.2;
 }
 
 button{
@@ -363,10 +390,12 @@ max-width: 100vw;
 }
 
 .movie__title {
-    font-size: 20px;
+    font-size: clamp(16px, 2.5vw, 20px);
     margin-bottom: 8px;
     color: #b83636;
     font-weight: bold;
+    overflow-wrap: break-word;
+    word-break: break-word;
 }
 
 .movie__info {
@@ -490,7 +519,8 @@ footer{
     .search-container {
         flex-direction: column;
         gap: 12px;
-        max-width: 100%;
+        width: 100%;
+        max-width:700px;
         padding: 0 16px;
     }
 
