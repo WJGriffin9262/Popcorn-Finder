@@ -485,32 +485,8 @@ footer{
     padding: 0 8px;
 }
 /*SMALL PHONE, TABLETS, LARGE SMARTPHONES*/
-@media(max-width: 768px){
-
-    .header__description{
-        padding: 0 24px;
-        font-size: 40px;
-    }
-
-    h2{
-        font-size: 26px;
-    }
-
-    button{
-        font-size: 18px;
-    }
-
-    .movie {
-        width: calc(50% - 40px);
-    }
-
-    .movie__img {
-        height: 300px;
-    }
-}
-
 /* Better mobile layout for smaller screens */
-@media (max-width: 550px) {
+@media (max-width: 768px) {
     .search-container {
         flex-direction: column;
         gap: 12px;
