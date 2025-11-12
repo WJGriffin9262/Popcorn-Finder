@@ -368,8 +368,9 @@ margin: 0 auto;
 }
 
 /* DETAILS: stack highlights vertically and make them use full available width
-   We set padding on the wrapper so the highlights keep the same horizontal
-   spacing on mobile as desktop and do not overflow the viewport. */
+   Add defensive rules so highlights never cause horizontal overflow on small
+   screens. Keep the same horizontal padding as desktop while centering
+   each highlight card. */
 #movie-details .highlight__wrapper{
     width: 100%;
     display: flex;
@@ -379,6 +380,8 @@ margin: 0 auto;
     margin-top: 28px;
     padding: 0 24px; /* keep horizontal spacing consistent */
     box-sizing: border-box;
+    max-width: 100%;
+    overflow-x: hidden; /* prevent any child from creating horizontal scroll */
 }
 
 .highlight{
@@ -390,6 +393,7 @@ margin: 0 auto;
     box-shadow: 0 6px 18px rgba(0,0,0,0.06);
     text-align: left;
     transition: transform 220ms ease, box-shadow 220ms ease;
+    box-sizing: border-box;
 }
 .highlight:hover{
     transform: translateY(-6px);
@@ -407,6 +411,7 @@ margin: 0 auto;
     background: linear-gradient(180deg, rgba(251,191,42,1) 0%, rgba(214,211,66,1) 100%);
     color: #ffffff;
     font-size: 26px;
+    min-width: 64px;
 }
 
 .highlight__subtitle{
@@ -424,20 +429,34 @@ margin: 0 auto;
 }
 
 @media (max-width: 768px){
+    /* On small screens: ensure wrapper keeps padding, and highlights are centered
+       and don't cause horizontal scrolling. */
     #movie-details .highlight__wrapper { padding: 0 16px; }
 
-    #movie-details .highlight {
+    /* Make each highlight card fluid but constrained and centered */
+    #movie-details .highlight,
+    .highlight {
         width: 100%;
-        max-width: 920px;
-        margin: 12px auto; 
+        max-width: 920px; /* keep desktop-like max width on larger phones */
+        margin: 12px auto; /* center with auto horizontal margin */
         text-align: center;
+        box-sizing: border-box;
+        padding-left: 18px;
+        padding-right: 18px;
+    }
+
+    /* Ensure the circular icon doesn't push layout off-screen */
+    .highlight__img{
+        width: 64px;
+        height: 64px;
+        min-width: 64px;
         box-sizing: border-box;
     }
 
-    .highlight {
-        width: 100%;
-        max-width: 920px;
-        margin: 12px auto;
+    /* Explicitly prevent any overflow from children */
+    #movie-details .highlight, #movie-details .highlight * {
+        max-width: 100%;
+        overflow-wrap: break-word;
     }
 }
 
