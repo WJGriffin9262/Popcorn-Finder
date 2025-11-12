@@ -1,61 +1,68 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
+    <!-- Meta Tags -->
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>PopcornFinder - Home</title>
+
+    <!-- Stylesheets -->
     <link rel="stylesheet" href="style.css" />
     <link rel="stylesheet" href="page-styles.css" />
-    <script
-      src="https://kit.fontawesome.com/3852e702d0.js"
-      crossorigin="anonymous"
-    ></script>
+
+    <!-- FontAwesome Icons -->
+    <script src="https://kit.fontawesome.com/3852e702d0.js" crossorigin="anonymous"></script>
+
+    <!-- Main Script -->
     <script src="index.js" defer></script>
   </head>
+
   <body>
+    <!-- ==================== LANDING/HERO SECTION ==================== -->
     <section id="landing">
+      <!-- Navigation Bar -->
       <nav>
         <div class="nav__container">
-          <h1 class="logo"><a href="home.html"><img src="assets/no-title_popcorn-finder_logo.png" alt="PopcornFinder"></a></h1>
+          <h1 class="logo">
+            <a href="index.html">
+              <img src="assets/no-title_popcorn-finder_logo.png" alt="PopcornFinder Logo">
+            </a>
+          </h1>
+
+          <!-- Desktop Navigation Links -->
           <ul class="nav__links">
-            <li>
-              <a href="home.html" class="nav__link">Home</a>
-            </li>
-            <li>
-              <a href="search.html" class="nav__link">Movies</a>
-            </li>
-            <li>
-              <a href="details.html" class="nav__link nav__link--primary">Details</a>
-            </li>
+            <li><a href="index.html" class="nav__link">Home</a></li>
+            <li><a href="search.html" class="nav__link nav__link--primary">Movies</a></li>
+            <li><a href="details.html" class="nav__link">Details</a></li>
           </ul>
+
+          <!-- Mobile Menu Toggle Button -->
           <button class="btn__menu" onclick="openMenu()">
             <i class="fa-solid fa-bars"></i>
           </button>
+
+          <!-- Mobile Menu (Hidden by default) -->
           <div class="menu__backdrop">
             <button class="btn__menu btn__menu--close" onclick="closeMenu()">
               <i class="fa-solid fa-times"></i>
             </button>
             <ul class="menu__links">
-              <li class="menu__list">
-                <a href="home.html" class="menu__link" onclick="closeMenu()">Home</a>
-              </li>
-              <li class="menu__list">
-                <a href="search.html" class="menu__link" onclick="closeMenu()">Movies</a>
-              </li>
-              <li class="menu__list">
-                <a href="details.html" class="menu__link" onclick="closeMenu()">Details</a>
-              </li>
+              <li class="menu__list"><a href="index.html" class="menu__link" onclick="closeMenu()">Home</a></li>
+              <li class="menu__list"><a href="search.html" class="menu__link" onclick="closeMenu()">Movies</a></li>
+              <li class="menu__list"><a href="details.html" class="menu__link" onclick="closeMenu()">Details</a></li>
             </ul>
           </div>
         </div>
       </nav>
+
+      <!-- Hero Header -->
       <header>
         <div class="header__container">
           <div class="header__description">
-            <h1 class="second_logo"><img src="assets/full_popcorn-finder_logo.png" alt="PopcornFinder Logo"></h1>
-            <h2>
-              What do you hope to <span class="text-red">Find?</span>
-            </h2>
+            <h1 class="second_logo">
+              <img src="assets/full_popcorn-finder_logo.png" alt="PopcornFinder Logo">
+            </h1>
+            <h2>What do you hope to <span class="text-red">Find?</span></h2>
             <a href="search.html">
               <button class="btn">Start Searching</button>
             </a>
@@ -63,23 +70,35 @@
         </div>
       </header>
     </section>
+
+    <!-- ==================== MAIN CONTENT ==================== -->
     <main>
+      <!-- Empty main for home page; content added dynamically if needed -->
     </main>
+
+    <!-- ==================== FOOTER ==================== -->
     <footer>
       <div class="container">
         <div class="row row_column">
-          <a href="home.html">
+          <!-- Footer Logo -->
+          <a href="index.html">
             <div class="footer__logo">
-              <figure><img class="footer__logo--img" src="assets/no-title_popcorn-finder_logo.png" alt=""></figure>
+              <figure>
+                <img class="footer__logo--img" src="assets/no-title_popcorn-finder_logo.png" alt="PopcornFinder Logo">
+              </figure>
             </div>
           </a>
+
+          <!-- Footer Links -->
           <div class="footer__list">
-            <a href="home.html" class="footer__link">Home</a>
+            <a href="index.html" class="footer__link">Home</a>
             <a href="search.html" class="footer__link">Movies</a>
             <a href="details.html" class="footer__link">Details</a>
             <a href="#" class="footer__link no-cursor">About</a>
             <a href="#" class="footer__link no-cursor">Contact</a>
           </div>
+
+          <!-- Copyright -->
           <div class="footer__copyright">Copyright &copy; 2025 PopcornFinder</div>
         </div>
       </div>

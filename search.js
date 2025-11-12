@@ -1,15 +1,54 @@
-// Menu functions
+// ==========================================
+// SEARCH PAGE - search.js
+// ==========================================
+// This file handles:
+// - Movie search functionality using OMDB API
+// - Search result rendering
+// - Sorting results by rating or year
+// - Navigation to movie details page
+// - Mobile menu interactions
+// - Page transition effects
+// ==========================================
+
+// ==========================================
+// NAVIGATION & MENU
+// ==========================================
+
+/**
+ * Opens the mobile navigation menu
+ */
 function openMenu() {
     document.body.classList = "menu--open"
 }
 
+/**
+ * Closes the mobile navigation menu
+ */
 function closeMenu() {
     document.body.classList.remove('menu--open')
 }
 
-// Store current fetched movies for sorting
+// ==========================================
+// STATE MANAGEMENT
+// ==========================================
+
+/**
+ * Global array to store current search results (with full movie details)
+ * Used for sorting without needing to re-fetch from the API
+ */
 let currentMovies = [];
 
+// ==========================================
+// SEARCH FUNCTIONALITY
+// ==========================================
+
+/**
+ * Searches for movies using the OMDB API
+ * - Fetches basic search results
+ * - Fetches detailed information for each result
+ * - Handles blank searches with broad query
+ * - Manages loading state and error handling
+ */
 async function searchMovies() {
     const searchInput = document.getElementById('movieSearch');
     const loadingSpinner = document.getElementById('loadingSpinner');
@@ -29,6 +68,8 @@ async function searchMovies() {
 
     try {
         let searchResults = [];
+        
+        // Fetch search results (multiple pages if blank query, single page otherwise)
         if (isBlank) {
             for (let page = 1; page <= maxPages; page++) {
                 const resp = await fetch(`https://www.omdbapi.com/?s=${encodeURIComponent(defaultQuery)}&page=${page}&apikey=10e61220`);
@@ -45,6 +86,7 @@ async function searchMovies() {
             if (d.Response === 'True' && Array.isArray(d.Search)) searchResults = d.Search;
         }
 
+        // Handle no results
         if (searchResults.length === 0) {
             currentMovies = [];
             movieResults.innerHTML = '<div class="no-results">No movies found. Please try another search.</div>';
@@ -52,7 +94,7 @@ async function searchMovies() {
             return;
         }
 
-        // Limit detail requests to avoid rate limits
+        // Fetch detailed information for each movie (limited to avoid API rate limits)
         const maxDetails = 30;
         const uniqueIds = Array.from(new Set(searchResults.map(s => s.imdbID))).slice(0, maxDetails);
 
@@ -63,6 +105,7 @@ async function searchMovies() {
             })
         );
 
+        // Store movies and render results
         currentMovies = movies.filter(m => m && m.Response !== 'False');
         renderMovies(currentMovies);
         sortSelect.disabled = false;
@@ -77,6 +120,17 @@ async function searchMovies() {
     }
 }
 
+// ==========================================
+// RENDERING
+// ==========================================
+
+/**
+ * Renders an array of movie objects as movie cards in the DOM
+ * Each card displays poster, title, runtime, genre, plot, and rating
+ * Cards are clickable to navigate to movie details
+ * 
+ * @param {Array} movies - Array of movie objects from OMDB API
+ */
 function renderMovies(movies) {
     const movieResults = document.getElementById('movieResults');
     if (!movies || movies.length === 0) {
@@ -100,6 +154,16 @@ function renderMovies(movies) {
     `).join('');
 }
 
+// ==========================================
+// SORTING
+// ==========================================
+
+/**
+ * Sorts the current movies array by the specified criteria
+ * Re-renders the results after sorting
+ * 
+ * @param {string} criteria - Sort option: 'best', 'worst', 'newest', or 'oldest'
+ */
 function sortMovies(criteria) {
     if (!currentMovies || currentMovies.length === 0) return;
     let sorted = [...currentMovies];
@@ -124,9 +188,18 @@ function sortMovies(criteria) {
     renderMovies(sorted);
 }
 
-// Navigate to details page with movie ID
+// ==========================================
+// NAVIGATION
+// ==========================================
+
+/**
+ * Navigates to the movie details page for a specific movie
+ * Stores the movie ID in sessionStorage for the details page to retrieve
+ * Triggers smooth page fade-out before navigation
+ * 
+ * @param {string} imdbID - The IMDB ID of the movie to view details for
+ */
 function goToDetails(imdbID) {
-    // Store the movie ID in sessionStorage for the details page
     sessionStorage.setItem('selectedMovieId', imdbID);
     // Smooth fade-out before navigation
     document.body.classList.remove('page-fade--in');
@@ -136,7 +209,11 @@ function goToDetails(imdbID) {
     }, 400);
 }
 
-// Wire up sort select change
+// ==========================================
+// EVENT LISTENERS
+// ==========================================
+
+// Sort select dropdown - trigger sort on change
 const sortEl = document.getElementById('sortSelect');
 if (sortEl) {
     sortEl.addEventListener('change', (e) => {
@@ -144,7 +221,7 @@ if (sortEl) {
     });
 }
 
-// Add event listener for Enter key
+// Search input - trigger search on Enter key
 const searchEl = document.getElementById('movieSearch');
 if (searchEl) {
     searchEl.addEventListener('keypress', (event) => {
@@ -154,7 +231,13 @@ if (searchEl) {
     });
 }
 
-// Fade in on page load
+// ==========================================
+// PAGE TRANSITIONS
+// ==========================================
+
+/**
+ * Fade in the page on load with smooth transition
+ */
 window.addEventListener('DOMContentLoaded', () => {
     document.body.classList.add('page-fade', 'page-fade--in');
 });

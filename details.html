@@ -1,63 +1,73 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
+    <!-- Meta Tags -->
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>PopcornFinder - Movie Details</title>
+
+    <!-- Stylesheets -->
     <link rel="stylesheet" href="style.css" />
     <link rel="stylesheet" href="page-styles.css" />
-    <script
-      src="https://kit.fontawesome.com/3852e702d0.js"
-      crossorigin="anonymous"
-    ></script>
+
+    <!-- FontAwesome Icons -->
+    <script src="https://kit.fontawesome.com/3852e702d0.js" crossorigin="anonymous"></script>
+
+    <!-- Details Page Script -->
     <script src="details.js" defer></script>
   </head>
+
   <body>
+    <!-- ==================== NAVIGATION SECTION ==================== -->
     <section id="landing">
-    <nav>
-      <div class="nav__container">
-        <h1 class="logo"><a href="home.html"><img src="assets/no-title_popcorn-finder_logo.png" alt="PopcornFinder"></a></h1>
-        <ul class="nav__links">
-          <li>
-            <a href="home.html" class="nav__link">Home</a>
-          </li>
-          <li>
-            <a href="search.html" class="nav__link">Movies</a>
-          </li>
-          <li>
-            <a href="details.html" class="nav__link nav__link--primary">Details</a>
-          </li>
-        </ul>
-        <button class="btn__menu" onclick="openMenu()">
-          <i class="fa-solid fa-bars"></i>
-        </button>
-        <div class="menu__backdrop">
-          <button class="btn__menu btn__menu--close" onclick="closeMenu()">
-            <i class="fa-solid fa-times"></i>
-          </button>
-          <ul class="menu__links">
-            <li class="menu__list">
-              <a href="home.html" class="menu__link" onclick="closeMenu()">Home</a>
-            </li>
-            <li class="menu__list">
-              <a href="search.html" class="menu__link" onclick="closeMenu()">Movies</a>
-            </li>
-            <li class="menu__list">
-              <a href="details.html" class="menu__link" onclick="closeMenu()">Details</a>
-            </li>
+      <nav>
+        <div class="nav__container">
+          <h1 class="logo">
+            <a href="index.html">
+              <img src="assets/no-title_popcorn-finder_logo.png" alt="PopcornFinder Logo">
+            </a>
+          </h1>
+
+          <!-- Desktop Navigation Links -->
+          <ul class="nav__links">
+            <li><a href="index.html" class="nav__link">Home</a></li>
+            <li><a href="search.html" class="nav__link">Movies</a></li>
+            <li><a href="details.html" class="nav__link nav__link--primary">Details</a></li>
           </ul>
+
+          <!-- Mobile Menu Toggle Button -->
+          <button class="btn__menu" onclick="openMenu()">
+            <i class="fa-solid fa-bars"></i>
+          </button>
+
+          <!-- Mobile Menu (Hidden by default) -->
+          <div class="menu__backdrop">
+            <button class="btn__menu btn__menu--close" onclick="closeMenu()">
+              <i class="fa-solid fa-times"></i>
+            </button>
+            <ul class="menu__links">
+              <li class="menu__list"><a href="index.html" class="menu__link" onclick="closeMenu()">Home</a></li>
+              <li class="menu__list"><a href="search.html" class="menu__link" onclick="closeMenu()">Movies</a></li>
+              <li class="menu__list"><a href="details.html" class="menu__link" onclick="closeMenu()">Details</a></li>
+            </ul>
+          </div>
         </div>
-      </div>
-    </nav>
+      </nav>
     </section>
+
+    <!-- ==================== DETAILS & HIGHLIGHTS SECTION ==================== -->
     <main>
       <section id="movie-details">
         <div class="container">
+          <!-- Top Section: Highlights (Why Choose PopcornFinder) -->
           <div class="row">
             <h2 class="section--title">
               Why choose <span class="text-red">PopcornFinder?</span>
             </h2>
+
+            <!-- Highlights Grid -->
             <div class="highlight__wrapper">
+              <!-- Highlight 1: Fast Search -->
               <div class="highlight">
                 <div class="highlight__img">
                   <i class="fa-solid fa-bolt-lightning"></i>
@@ -67,15 +77,19 @@
                   Find any movie instantly with our powerful search engine.
                 </p>
               </div>
+
+              <!-- Highlight 2: Extensive Database -->
               <div class="highlight">
                 <div class="highlight__img">
                   <i class="fa-solid fa-film"></i>
                 </div>
                 <h3 class="highlight__subtitle">Extensive Database</h3>
                 <p class="highlight__para">
-                  Access information about thousands of movies from IMDB.
+                  Access information about thousands of movies from OMDB.
                 </p>
               </div>
+
+              <!-- Highlight 3: Detailed Info -->
               <div class="highlight">
                 <div class="highlight__img">
                   <i class="fa-solid fa-star"></i>
@@ -87,13 +101,15 @@
               </div>
             </div>
 
+            <!-- Selected Movie Details (Populated dynamically by details.js) -->
             <div id="detailsContent" class="movie-details-container">
               <div class="loading-spinner">
                 <i class="fas fa-spinner fa-spin"></i>
               </div>
             </div>
           </div>
-          <!-- Move explore into movie-details so we can space highlights between the two titles -->
+
+          <!-- Bottom Section: Explore / Browse Movies CTA -->
           <div class="row">
             <section id="explore">
               <div class="explore__container">
@@ -110,21 +126,29 @@
       </section>
     </main>
 
+    <!-- ==================== FOOTER ==================== -->
     <footer>
       <div class="container">
         <div class="row row_column">
-          <a href="home.html">
+          <!-- Footer Logo -->
+          <a href="index.html">
             <div class="footer__logo">
-              <figure><img class="footer__logo--img" src="assets/no-title_popcorn-finder_logo.png" alt=""></figure>
+              <figure>
+                <img class="footer__logo--img" src="assets/no-title_popcorn-finder_logo.png" alt="PopcornFinder Logo">
+              </figure>
             </div>
           </a>
+
+          <!-- Footer Links -->
           <div class="footer__list">
-            <a href="home.html" class="footer__link">Home</a>
+            <a href="index.html" class="footer__link">Home</a>
             <a href="search.html" class="footer__link">Movies</a>
             <a href="details.html" class="footer__link">Details</a>
             <a href="#" class="footer__link no-cursor">About</a>
             <a href="#" class="footer__link no-cursor">Contact</a>
           </div>
+
+          <!-- Copyright -->
           <div class="footer__copyright">Copyright &copy; 2025 PopcornFinder</div>
         </div>
       </div>

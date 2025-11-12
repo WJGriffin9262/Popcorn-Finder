@@ -1,6 +1,6 @@
 /* SEARCH PAGE STYLES */
 #search-page {
-    background-color: rgba(214, 211, 66, 0.1)
+    background-color: rgba(214, 211, 66, 0.1);
     padding: 40px 0;
     min-height: calc(100vh - 80px - 200px);
 }

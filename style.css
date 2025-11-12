@@ -184,6 +184,8 @@ border-radius: 4px;
 
 #landing{
   background-color: rgba(214, 211, 66, 0.1);
+  min-height: auto;
+  width: 100%;
 }
 
 header{
@@ -515,7 +517,7 @@ footer{
 }
 
 .footer__logo--img{
-    width: 120px;
+    width: 64px;
     filter: grayscale(1) invert(1);
 }
 
@@ -534,6 +536,13 @@ footer{
 /*SMALL PHONE, TABLETS, LARGE SMARTPHONES*/
 /* Better mobile layout for smaller screens */
 @media (max-width: 768px) {
+    #landing {
+        background-color: rgba(214, 211, 66, 0.1);
+        min-height: auto;
+        width: 100%;
+        display: block;
+    }
+
     .search-container {
         flex-direction: column;
         gap: 12px;
