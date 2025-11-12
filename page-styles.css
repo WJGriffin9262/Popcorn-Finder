@@ -32,10 +32,8 @@
 /* DETAILS PAGE STYLES */
 #movie-details {
     background-color: rgba(214, 211, 66, 0.1);
-    /* keep top spacing but reduce bottom padding so the next section sits closer */
     padding: 40px 0 6px 0;
     min-height: calc(100vh - 80px - 200px);
-    /* layout children vertically and allow spacing between top/title, highlights and explore */
     display: flex;
     flex-direction: column;
 }
