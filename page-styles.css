@@ -1,6 +1,6 @@
 /* SEARCH PAGE STYLES */
 #search-page {
-    background-color: rgba(214, 211, 66, 0.1);
+    background-color: rgba(214, 211, 66, 0.1)
     padding: 40px 0;
     min-height: calc(100vh - 80px - 200px);
 }
@@ -32,8 +32,25 @@
 /* DETAILS PAGE STYLES */
 #movie-details {
     background-color: rgba(214, 211, 66, 0.1);
-    padding: 40px 0;
+    /* keep top spacing but reduce bottom padding so the next section sits closer */
+    padding: 40px 0 6px 0;
     min-height: calc(100vh - 80px - 200px);
+    /* layout children vertically and allow spacing between top/title, highlights and explore */
+    display: flex;
+    flex-direction: column;
+}
+
+#movie-details > .container {
+    display: flex;
+    flex-direction: column;
+    flex: 1 1 auto;
+}
+
+#movie-details .row {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    flex: 1 1 auto;
 }
 
 .back-link {
@@ -68,7 +85,7 @@
     display: flex;
     gap: 32px;
     padding: 32px;
-    background: linear-gradient(135deg, rgba(184, 54, 54, 0.1) 0%, rgba(214, 211, 66, 0.1) 100%);
+    background-color: rgba(214, 211, 66, 0.1);
 }
 
 .details-poster {

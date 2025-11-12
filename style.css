@@ -42,6 +42,15 @@ a{
     color: inherit;
 }
 
+/* Smooth page transition effect */
+.page-fade {
+    opacity: 0;
+    transition: opacity 0.5s cubic-bezier(.4,0,.2,1);
+}
+.page-fade.page-fade--in {
+    opacity: 1;
+}
+
 a:hover{
     text-decoration: underline;
 }
@@ -51,6 +60,11 @@ a:hover{
 .search-container select {
     min-width: 0;
 }
+
+.nav{
+     background-color: rgba(214, 211, 66, 0.1);
+}
+
 .nav__container{
 display: flex;
 width: 100%;
@@ -169,7 +183,7 @@ border-radius: 4px;
 
 
 #landing{
-    background-color: rgba(214, 211, 66, 0.1);
+  background-color: rgba(214, 211, 66, 0.1);
 }
 
 header{
@@ -268,6 +282,13 @@ margin: 0 auto;
     padding-top: 8vw;
 }
 
+/* Ensure top area of search and details pages use the same yellow background */
+#search-page,
+#movie-details{
+    background-color: rgba(214, 211, 66, 0.1);
+    padding-top: 8vw;
+}
+
 #search .section__title {
     color: #ffffff;
 }
@@ -339,16 +360,33 @@ margin: 0 auto;
     justify-content: center;
     align-items: flex-start;
     margin-top: 24px;
+    /* reduce space below highlights so the explore section sits closer */
+    margin-bottom: 0;
     flex-wrap: wrap;
 }
 
+/* DETAILS: stack highlights vertically and enlarge them so they take up more page width */
+#movie-details .highlight__wrapper,
+#movie-details .highlight__wrapper > .highlight{
+    width: 100%;
+}
+
+#movie-details .highlight__wrapper{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    margin-top: 28px;
+}
+
 .highlight{
-    background: rgba(255,255,255,0.95);
+    background: rgba(255,255,255,0.96);
     border-radius: 10px;
-    padding: 18px;
-    width: 260px;
+    padding: 20px 22px;
+    width: 80%;
+    max-width: 920px;
     box-shadow: 0 6px 18px rgba(0,0,0,0.06);
-    text-align: center;
+    text-align: left;
     transition: transform 220ms ease, box-shadow 220ms ease;
 }
 .highlight:hover{
@@ -376,12 +414,16 @@ margin: 0 auto;
 }
 
 .highlight__para{
+    text-align: center;
+    font-weight: bold;
     color: #666666;
     font-size: 14px;
     line-height: 1.4;
 }
 
 @media (max-width: 768px){
+    /* On small screens highlights should take nearly full width */
+    #movie-details .highlight{ width: calc(100% - 48px); margin: 12px 24px; text-align: center; }
     .highlight{ width: calc(100% - 48px); margin: 12px 24px; }
 }
 
@@ -440,8 +482,8 @@ margin: 0 auto;
 /*EXPLORE*/
 
 #explore{
-    background-color: rgba(214, 211, 66, 0.1);
-    height: 240px;
+    /* slightly reduce height so it sits closer to the highlights */
+    height: 160px;
 }
 
 .explore__container{

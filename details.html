@@ -13,7 +13,7 @@
     <script src="details.js" defer></script>
   </head>
   <body>
-    <nav>
+    <nav id="landing">
       <div class="nav__container">
         <h1 class="logo"><a href="home.html"><img src="assets/no-title_popcorn-finder_logo.png" alt="PopcornFinder"></a></h1>
         <ul class="nav__links">
@@ -72,7 +72,7 @@
                 </div>
                 <h3 class="highlight__subtitle">Extensive Database</h3>
                 <p class="highlight__para">
-                  Access information about thousands of movies from OMDB.
+                  Access information about thousands of movies from IMDB.
                 </p>
               </div>
               <div class="highlight">
@@ -92,16 +92,18 @@
               </div>
             </div>
           </div>
-        </div>
-      </section>
-
-      <section id="explore">
-        <div class="explore__container">
-          <div class="explore__description">
-            <h3>Discover more <span class="text-red">Movies</span></h3>
-            <a href="search.html">
-              <button class="btn">Browse Movies</button>
-            </a>
+          <!-- Move explore into movie-details so we can space highlights between the two titles -->
+          <div class="row">
+            <section id="explore">
+              <div class="explore__container">
+                <div class="explore__description">
+                  <h3>Discover more <span class="text-red">Movies</span></h3>
+                  <a href="search.html">
+                    <button class="btn">Browse Movies</button>
+                  </a>
+                </div>
+              </div>
+            </section>
           </div>
         </div>
       </section>

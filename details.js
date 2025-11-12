@@ -85,5 +85,8 @@ async function loadMovieDetails() {
     }
 }
 
-// Load details when page loads
-document.addEventListener('DOMContentLoaded', loadMovieDetails);
+// Smooth fade-in on page load
+window.addEventListener('DOMContentLoaded', () => {
+    document.body.classList.add('page-fade', 'page-fade--in');
+    loadMovieDetails();
+});

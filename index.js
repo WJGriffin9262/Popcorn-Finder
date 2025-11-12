@@ -204,3 +204,8 @@ if (searchButtonEl) {
 
 // Expose handler globally in case inline handlers or other scripts reference it
 window.searchMovies = searchMovies;
+
+// Smooth fade-in on page load
+window.addEventListener('DOMContentLoaded', () => {
+    document.body.classList.add('page-fade', 'page-fade--in');
+});

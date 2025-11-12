@@ -128,7 +128,12 @@ function sortMovies(criteria) {
 function goToDetails(imdbID) {
     // Store the movie ID in sessionStorage for the details page
     sessionStorage.setItem('selectedMovieId', imdbID);
-    window.location.href = 'details.html';
+    // Smooth fade-out before navigation
+    document.body.classList.remove('page-fade--in');
+    document.body.classList.add('page-fade');
+    setTimeout(() => {
+        window.location.href = 'details.html';
+    }, 400);
 }
 
 // Wire up sort select change
@@ -148,3 +153,8 @@ if (searchEl) {
         }
     });
 }
+
+// Fade in on page load
+window.addEventListener('DOMContentLoaded', () => {
+    document.body.classList.add('page-fade', 'page-fade--in');
+});
